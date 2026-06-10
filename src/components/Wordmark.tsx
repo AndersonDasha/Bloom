@@ -1,10 +1,10 @@
 import { Sprout } from '../icons'
 
-export default function Wordmark({ size = 20 }: { size?: number }) {
+export default function Wordmark({ size = 20, shine = false }: { size?: number; shine?: boolean }) {
   return (
     <div className="wordmark" style={{ fontSize: size }}>
       <Sprout size={size * 1.1} />
-      bloom
+      <span className={shine ? 'shine-text' : undefined}>bloom</span>
     </div>
   )
 }

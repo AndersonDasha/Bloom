@@ -21,6 +21,12 @@ export const ChevronLeft = ({ size = 20, color = 'currentColor' }: P) => (
   </svg>
 )
 
+export const ChevronRight = ({ size = 16, color = 'currentColor' }: P) => (
+  <svg {...base(size)} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 18l6-6-6-6" />
+  </svg>
+)
+
 export const Check = ({ size = 14, color = 'currentColor' }: P) => (
   <svg {...base(size)} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 6L9 17l-5-5" />

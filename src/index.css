@@ -115,7 +115,9 @@ button {
   left: -130px;
   top: -110px;
   background: radial-gradient(circle, rgba(63, 224, 129, 0.4), transparent 70%);
-  animation: drift1 16s ease-in-out infinite alternate;
+  animation:
+    drift1 16s ease-in-out infinite alternate,
+    breathe 7s ease-in-out infinite alternate;
 }
 
 .aurora i:nth-child(2) {
@@ -124,7 +126,9 @@ button {
   right: -120px;
   top: 30%;
   background: radial-gradient(circle, rgba(34, 150, 120, 0.35), transparent 70%);
-  animation: drift2 19s ease-in-out infinite alternate;
+  animation:
+    drift2 19s ease-in-out infinite alternate,
+    breathe 9s ease-in-out infinite alternate-reverse;
 }
 
 .aurora i:nth-child(3) {
@@ -133,7 +137,18 @@ button {
   left: -80px;
   bottom: -140px;
   background: radial-gradient(circle, rgba(63, 224, 129, 0.22), transparent 70%);
-  animation: drift3 22s ease-in-out infinite alternate;
+  animation:
+    drift3 22s ease-in-out infinite alternate,
+    breathe 11s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from {
+    opacity: 0.42;
+  }
+  to {
+    opacity: 0.68;
+  }
 }
 
 @keyframes drift1 {
@@ -318,8 +333,24 @@ button {
   min-height: 220px;
 }
 
+.bubble-wrap {
+  animation: bubbleDrift var(--dur, 24s) ease-in-out infinite alternate;
+}
+
+@keyframes bubbleDrift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(var(--dx, 16px), var(--dy, -18px)) rotate(2.5deg);
+  }
+  100% {
+    transform: translate(var(--dx2, -12px), var(--dy2, 12px)) rotate(-2deg);
+  }
+}
+
 .bubble {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -329,8 +360,7 @@ button {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  font-weight: 700;
-  animation: floaty 5s ease-in-out infinite alternate;
+  color: rgba(237, 242, 238, 0.88);
 }
 
 .bubble .dot {
@@ -344,12 +374,6 @@ button {
   border: 2px solid var(--bg);
 }
 
-@keyframes floaty {
-  to {
-    transform: translateY(-14px);
-  }
-}
-
 .wordmark {
   display: flex;
   align-items: center;
@@ -357,6 +381,80 @@ button {
   font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.shine-text {
+  background-image: linear-gradient(
+    110deg,
+    var(--ink) 0%,
+    var(--ink) 42%,
+    #ffffff 50%,
+    #a7f3c4 55%,
+    var(--ink) 63%,
+    var(--ink) 100%
+  );
+  background-size: 220% 100%;
+  background-position: 130% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3.4s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%,
+  15% {
+    background-position: 130% 0;
+  }
+  65%,
+  100% {
+    background-position: -90% 0;
+  }
+}
+
+/* CTA */
+
+.cta-big {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  gap: 4px;
+}
+
+.cta-arrows {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2px;
+}
+
+.cta-arrows i {
+  display: flex;
+  animation: nudge 1.15s ease-in-out infinite;
+}
+
+.cta-arrows i + i {
+  margin-left: -9px;
+}
+
+.cta-arrows i:nth-child(2) {
+  animation-delay: 0.13s;
+}
+
+.cta-arrows i:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(-3px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(2px);
+  }
 }
 
 /* ---------- chips (goal) ---------- */

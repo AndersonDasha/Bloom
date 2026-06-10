@@ -1,11 +1,31 @@
-<div align="center">
+# Bloom 🌱
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A social networking prototype for Gen Z — find the 50 people in your network most
+likely to land you your next job.
 
-  <h1>Built with AI Studio</h2>
+Bloom scans where your real network lives (iMessage, LinkedIn, X, Instagram, TikTok,
+Gmail) and ranks your top 50 people, with the context that matters: when you last
+talked, where they are, and what you talked about.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## This prototype
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+Two flows, built as a mobile-first experience:
 
-</div>
+1. **Onboarding** — welcome → pick what's next → connect your sources → live network scan
+2. **Home** — your ranked Top 50 with filters (Hiring now · In SF · Warmest) and one-tap outreach
+
+All data is mocked. Glassmorphism design system documented in [design.md](./design.md).
+
+## Run it
+
+```bash
+npm install
+npm run dev
+```
+
+Open the URL on a phone (or in a narrow browser window — on desktop it renders inside
+a phone frame). Tap the ↻ icon on the home screen to replay onboarding.
+
+## Stack
+
+Vite · React · TypeScript · Framer Motion · hand-rolled CSS (no UI library)
